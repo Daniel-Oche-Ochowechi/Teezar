@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Local Aglema Custom Font Loading with Cormorant Garamond / Playfair Display Fallbacks */
+@font-face {
+  font-family: "Aglema";
+  src: local("Aglema"),
+       url("/assets/fonts/Aglema.woff2") format("woff2"),
+       url("/assets/fonts/Aglema.otf") format("opentype"),
+       url("/assets/fonts/Aglema.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aglema";
+  src: local("Aglema Bold"),
+       local("Aglema-Bold"),
+       url("/assets/fonts/Aglema-Bold.woff2") format("woff2"),
+       url("/assets/fonts/Aglema-Bold.otf") format("opentype"),
+       url("/assets/fonts/Aglema-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  font-family: "Raleway", system-ui, -apple-system, sans-serif;
+  background-color: #FAF8F5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(223, 190, 122, 0.18), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 40%, rgba(235, 210, 146, 0.12), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 0% 80%, rgba(223, 190, 122, 0.10), transparent 60%),
+    #FAF8F5;
+  color: #111113;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea,
+select,
+a {
+  font: inherit;
+}
+
+.font-aglema {
+  font-family: "Aglema", "Cormorant Garamond", "Playfair Display", Georgia, serif;
+}
+
+.font-raleway {
+  font-family: "Raleway", system-ui, -apple-system, sans-serif;
+}
+
+/* Luxury Card Shimmer & Subtle Gold Border Styles */
+.gold-gradient-border {
+  background: linear-gradient(135deg, rgba(223, 190, 122, 0.35), rgba(255, 255, 255, 0.8), rgba(223, 190, 122, 0.2));
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #a98340 0%, #d4b260 50%, #8c6a28 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-badge {
+  background: linear-gradient(135deg, #FAF0D8 0%, #F5E3BD 100%);
+}
+
+.gold-shimmer-btn {
+  background: linear-gradient(135deg, #18181b 0%, #09090b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-shimmer-btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(223, 190, 122, 0.18) 50%,
+    transparent 70%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+
+.gold-shimmer-btn:hover::after {
+  transform: rotate(30deg) translate(20%, 20%);
+}
+
+::selection {
+  background: rgba(223, 190, 122, 0.35);
+  color: #0e0e10;
+}
